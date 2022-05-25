@@ -1,0 +1,15 @@
+{
+  "name": "fuckyouqueue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "queue.js",
+  "type": "module",
+  "scripts": {
+    "start": "node queue.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
