@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.post('/scheduleJobs', (req, res) => {
     let newJobs = req?.body?.jobs;
     if (newJobs) {
-        jobs.push(newJobs);
+        jobs.push(...newJobs);
         doJobs();
     }
     res.status(200).send('Jobs scheduled:' + newJobs);
