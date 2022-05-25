@@ -1,8 +1,8 @@
 import express from 'express';
 import axios from 'axios';
 const app = express();
-const webhook = process.env.WEBHOOK_URL;
-const jobs = [];
+const webhook = 'https://better-thumbnail-tester.vercel.app/api/test/update';
+let jobs = [];
 
 app.use(express.json());
 
@@ -25,7 +25,9 @@ const doJobs = async () => {
     let failedJobs = [];
     for(let job of jobs) {
         try {
-            await axios.post(webhook, job);
+            await axios.post(webhook, {
+                videoId: job
+            });
             successfulJobs.push(job);
         }
         catch(e) {
@@ -36,6 +38,7 @@ const doJobs = async () => {
     }
     console.log('Successful jobs: ', successfulJobs);
     console.log('Failed jobs: ', failedJobs);
+    jobs = [];
 }
 
 app.listen(process.env.PORT || 3000, () => {
