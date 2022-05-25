@@ -17,7 +17,7 @@ app.post('/scheduleJobs', (req, res) => {
         jobs.push(newJobs);
         doJobs();
     }
-    res.status(200).send('Jobs scheduled:', newJobs);
+    res.status(200).send('Jobs scheduled:' + newJobs);
 });
 
 const doJobs = async () => {
