@@ -4,6 +4,8 @@ const app = express();
 const webhook = process.env.WEBHOOK_URL;
 const jobs = [];
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
         res.send('FuckYouQueue is running!');
     }
