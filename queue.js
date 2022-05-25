@@ -35,3 +35,7 @@ const doJobs = async () => {
     console.log('Successful jobs: ', successfulJobs);
     console.log('Failed jobs: ', failedJobs);
 }
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log('FuckYouQueue is running!');
+})
