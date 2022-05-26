@@ -36,6 +36,7 @@ const doJobs = async () => {
             failedJobs.push(job);
         }
     }
+    console.log(new Date());
     console.log('Successful jobs: ', successfulJobs);
     console.log('Failed jobs: ', failedJobs);
     jobs = [];
