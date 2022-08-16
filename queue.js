@@ -7,9 +7,8 @@ let jobs = [];
 app.use(express.json());
 
 app.get('/', (req, res) => {
-        res.send('FuckYouQueue is running!');
-    }
-);
+    res.send('FuckYouQueue is running!');
+});
 
 app.post('/scheduleJobs', (req, res) => {
     let newJobs = req?.body?.jobs;
@@ -23,14 +22,14 @@ app.post('/scheduleJobs', (req, res) => {
 const doJobs = async () => {
     let successfulJobs = [];
     let failedJobs = [];
-    for(let job of jobs) {
+    for (let job of jobs) {
         try {
             await axios.post(webhook, {
                 videoId: job
             });
             successfulJobs.push(job);
         }
-        catch(e) {
+        catch (e) {
             console.log('Failed to schedule job: ', job);
             console.log(e);
             failedJobs.push(job);
